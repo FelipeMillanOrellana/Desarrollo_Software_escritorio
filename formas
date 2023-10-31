@@ -1,0 +1,114 @@
+class Forma {
+    protected String color;
+    protected Punto centro;
+    protected String nombre;
+
+    public Forma(String color, Punto centro, String nombre) {
+        this.color = color;
+        this.centro = centro;
+        this.nombre = nombre;
+    }
+
+    public void imprimir() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Color: " + color);
+        System.out.println("Centro: " + centro.toString());
+    }
+
+    public String obtenerColor() {
+        return color;
+    }
+
+    public void cambiarColor(String nuevoColor) {
+        color = nuevoColor;
+    }
+
+    public void moverForma(int x, int y) {
+        centro.mover(x, y);
+    }
+}
+----------------------------------------------------
+class Rectangulo extends Forma {
+    private int ladoMenor;
+    private int ladoMayor;
+
+    public Rectangulo(String color, Punto centro, String nombre, int ladoMenor, int ladoMayor) {
+        super(color, centro, nombre);
+        this.ladoMenor = ladoMenor;
+        this.ladoMayor = ladoMayor;
+    }
+
+    @Override
+    public void imprimir() {
+        super.imprimir();
+        System.out.println("Lado Menor: " + ladoMenor);
+        System.out.println("Lado Mayor: " + ladoMayor);
+    }
+
+    public double calcularArea() {
+        return ladoMenor * ladoMayor;
+    }
+
+    public double calcularPerimetro() {
+        return 2 * (ladoMenor + ladoMayor);
+    }
+
+    public void cambiarTamanio(double factorEscala) {
+        ladoMenor *= factorEscala;
+        ladoMayor *= factorEscala;
+    }
+}
+-------------------------------------------------------
+class Elipse extends Forma {
+    private double radioMayor;
+    private double radioMenor;
+
+    public Elipse(String color, Punto centro, String nombre, double radioMayor, double radioMenor) {
+        super(color, centro, nombre);
+        this.radioMayor = radioMayor;
+        this.radioMenor = radioMenor;
+    }
+
+    @Override
+    public void imprimir() {
+        super.imprimir();
+        System.out.println("Radio Mayor: " + radioMayor);
+        System.out.println("Radio Menor: " + radioMenor);
+    }
+
+    public double calcularArea() {
+        return Math.PI * radioMayor * radioMenor;
+    }
+}
+----------------------------------------------------
+class Cuadrado extends Rectangulo {
+    public Cuadrado(String color, Punto centro, String nombre, int lado) {
+        super(color, centro, nombre, lado, lado);
+    }
+}
+---------------------------------------------------
+class Circulo extends Elipse {
+    public Circulo(String color, Punto centro, String nombre, double radio) {
+        super(color, centro, nombre, radio, radio);
+    }
+}
+------------------------------------------------
+class Punto {
+    private int x;
+    private int y;
+
+    public Punto(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void mover(int deltaX, int deltaY) {
+        x += deltaX;
+        y += deltaY;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+}
