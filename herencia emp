@@ -1,0 +1,172 @@
+class Empleado {
+    private String nombre;
+    private String apellidos;
+    private String DNI;
+    private String direccion;
+    private int antiguedad;
+    private String telefono;
+    private double salario;
+    private Empleado supervisor;
+
+    // Constructor
+    public Empleado(String nombre, String apellidos, String DNI, String direccion, String telefono, double salario) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.DNI = DNI;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.salario = salario;
+    }
+
+    // Getters y setters (omitiendo por brevedad)
+
+    // Cambiar supervisor
+    public void cambiarSupervisor(Empleado supervisor) {
+        this.supervisor = supervisor;
+    }
+
+    // Incrementar salario
+    public void incrementarSalario(double porcentaje) {
+        salario += salario * (porcentaje / 100);
+    }
+
+    // Imprimir datos
+    public void imprimir() {
+        System.out.println("Nombre: " + nombre + " " + apellidos);
+        System.out.println("DNI: " + DNI);
+        System.out.println("Dirección: " + direccion);
+        System.out.println("Teléfono: " + telefono);
+        System.out.println("Salario: " + salario);
+    }
+}
+
+class Secretario extends Empleado {
+    private String despacho;
+    private String numeroFax;
+
+    // Constructor
+    public Secretario(String nombre, String apellidos, String DNI, String direccion, String telefono, double salario,
+                      String despacho, String numeroFax) {
+        super(nombre, apellidos, DNI, direccion, telefono, salario);
+        this.despacho = despacho;
+        this.numeroFax = numeroFax;
+    }
+
+    // Imprimir datos
+    @Override
+    public void imprimir() {
+        super.imprimir();
+        System.out.println("Puesto: Secretario");
+        System.out.println("Despacho: " + despacho);
+        System.out.println("Número de Fax: " + numeroFax);
+    }
+}
+
+class Vendedor extends Empleado {
+    private String cocheEmpresa;
+    private String telefonoMovil;
+    private String areaVenta;
+    private String[] listaClientes;
+    private double porcentajeComision;
+
+    // Constructor
+    public Vendedor(String nombre, String apellidos, String DNI, String direccion, String telefono, double salario,
+                    String cocheEmpresa, String telefonoMovil, String areaVenta, double porcentajeComision) {
+        super(nombre, apellidos, DNI, direccion, telefono, salario);
+        this.cocheEmpresa = cocheEmpresa;
+        this.telefonoMovil = telefonoMovil;
+        this.areaVenta = areaVenta;
+        this.porcentajeComision = porcentajeComision;
+    }
+
+    // Imprimir datos
+    @Override
+    public void imprimir() {
+        super.imprimir();
+        System.out.println("Puesto: Vendedor");
+        System.out.println("Coche de la Empresa: " + cocheEmpresa);
+        System.out.println("Teléfono Móvil: " + telefonoMovil);
+        System.out.println("Área de Venta: " + areaVenta);
+        System.out.println("Porcentaje de Comisión: " + porcentajeComision);
+    }
+
+    // Dar de alta un nuevo cliente
+    public void darDeAltaCliente(String cliente) {
+        // Lógica para dar de alta un cliente
+    }
+
+    // Dar de baja un cliente
+    public void darDeBajaCliente(String cliente) {
+        // Lógica para dar de baja un cliente
+    }
+
+    // Cambiar coche de la empresa
+    public void cambiarCocheEmpresa(String nuevoCoche) {
+        this.cocheEmpresa = nuevoCoche;
+    }
+}
+
+class JefeDeZona extends Empleado {
+    private String despacho;
+    private Secretario secretario;
+    private String cocheEmpresa;
+    private Vendedor[] listaVendedores;
+
+    // Constructor
+    public JefeDeZona(String nombre, String apellidos, String DNI, String direccion, String telefono, double salario,
+                      String despacho, Secretario secretario, String cocheEmpresa, Vendedor[] listaVendedores) {
+        super(nombre, apellidos, DNI, direccion, telefono, salario);
+        this.despacho = despacho;
+        this.secretario = secretario;
+        this.cocheEmpresa = cocheEmpresa;
+        this.listaVendedores = listaVendedores;
+    }
+
+    // Imprimir datos
+    @Override
+    public void imprimir() {
+        super.imprimir();
+        System.out.println("Puesto: Jefe de Zona");
+        System.out.println("Despacho: " + despacho);
+        System.out.println("Coche de la Empresa: " + cocheEmpresa);
+        System.out.println("Secretario a Cargo: " + secretario.getNombre() + " " + secretario.getApellidos());
+        System.out.println("Vendedores a Cargo:");
+        for (Vendedor vendedor : listaVendedores) {
+            System.out.println(vendedor.getNombre() + " " + vendedor.getApellidos());
+        }
+    }
+
+    // Cambiar secretario
+    public void cambiarSecretario(Secretario nuevoSecretario) {
+        this.secretario = nuevoSecretario;
+    }
+
+    // Cambiar coche de la empresa
+    public void cambiarCocheEmpresa(String nuevoCoche) {
+        this.cocheEmpresa = nuevoCoche;
+    }
+
+    // Dar de alta un nuevo vendedor en su zona
+    public void darDeAltaVendedor(Vendedor nuevoVendedor) {
+        // Lógica para dar de alta un vendedor en la zona
+    }
+
+    // Dar de baja un vendedor en su zona
+    public void darDeBajaVendedor(Vendedor vendedor) {
+        // Lógica para dar de baja un vendedor en la zona
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Crear empleados de ejemplo
+        Empleado supervisor = new Empleado("Supervisor", "Apellido", "12345678A", "Direccion", "123456789", 50000);
+        Secretario secretario = new Secretario("Secretario", "Apellido", "23456789B", "Direccion", "987654321", 30000,
+                "Despacho 1", "1234");
+        Vendedor vendedor = new Vendedor("Vendedor", "Apellido", "34567890C", "Direccion", "567891234", 25000,
+                "Coche123", "999999999", "Zona 1", 0.1);
+        Vendedor[] listaVendedores = {vendedor};
+        JefeDeZona jefeDeZona = new JefeDeZona("Jefe", "Apellido", "45678901D", "Direccion", "111223344", 60000,
+                "Despacho 2", secretario, "Coche456", listaVendedores);
+
+        // Imprimir información de
