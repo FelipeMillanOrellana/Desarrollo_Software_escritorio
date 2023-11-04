@@ -1,0 +1,6 @@
+cl\duoc\rentcar\DTO\VehiculoCargaDTO.class
+cl\duoc\rentcar\DTO\VehiculoDTO.class
+cl\duoc\rentcar\DTO\AdministracionVehiculos.class
+cl\duoc\rentcar\services\Interfaz.class
+cl\duoc\rentcar\DTO\VehiculoPasajerosDTO.class
+cl\duoc\rentcar\RentCar.class
