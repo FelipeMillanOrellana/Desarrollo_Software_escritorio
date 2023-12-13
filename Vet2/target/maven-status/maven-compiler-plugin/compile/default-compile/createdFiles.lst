@@ -1,0 +1,11 @@
+Views\Vet2.class
+DTO\GatosDTO.class
+DTO\PericosDTO.class
+DTO\DueñoDTO.class
+DTO\PerrosDTO.class
+Views\Vet2$2.class
+Views\IngresarMascota.class
+DTO\MascotaDTO.class
+Views\Vet2$1.class
+DTO\CacatuasDTO.class
+DTO\AtencionDTO.class
