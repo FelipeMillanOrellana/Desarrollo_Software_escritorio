@@ -4,10 +4,10 @@ import cl.duoc.rentcar.services.Interfaz;
 
 public abstract class VehiculoDTO implements Interfaz{
     private String patente;
-    private double precioDiario;
+    private int precioDiario;
     private int cantidadDias;
 
-    public VehiculoDTO(String patente, double precioDiario, int cantidadDias) {
+    public VehiculoDTO(String patente, int precioDiario, int cantidadDias) {
         this.patente = patente;
         this.precioDiario = precioDiario;
         this.cantidadDias = cantidadDias;
@@ -31,7 +31,7 @@ public abstract class VehiculoDTO implements Interfaz{
         return precioDiario;
     }
 
-    public void setPrecioDiario(double precioDiario) {
+    public void setPrecioDiario(int precioDiario) {
         this.precioDiario = precioDiario;
     }
 
@@ -45,15 +45,16 @@ public abstract class VehiculoDTO implements Interfaz{
     
     public abstract void mostrarDatos();
 
+    @Override
     public void mostrarDetalleBoleta() {
-        double precioArriendo = precioDiario * cantidadDias; // Precio sin IVA
-        double iva = precioArriendo * Iva;
-        double total = precioArriendo + iva;
+        int precioArriendo = precioDiario * cantidadDias; // Precio sin IVA
+        int iva = (int) (precioArriendo * Iva);
+        int total = (int) (precioArriendo + iva);
 
         System.out.println("Tipo: Vehículo");
         System.out.println("Patente: " + patente);
         System.out.println("Precio Diario: $" + precioDiario);
-        System.out.println("Cantidad de Días de Arriendo: " + cantidadDias + " días");
+        System.out.println("Días de Arriendo: " + cantidadDias + " días");
         System.out.println("Precio de Arriendo: $" + precioArriendo);
         System.out.println("IVA (" + (Iva * 100) + "%): $" + iva);
         System.out.println("Total a Pagar: $" + total);

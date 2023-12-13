@@ -1,39 +1,38 @@
 package cl.duoc.rentcar.DTO;
 
-    import java.util.ArrayList;
-    import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdministracionVehiculos {
     private final List<VehiculoDTO> vehiculos = new ArrayList<>();
 
-public boolean agregarVehiculo(VehiculoDTO vehiculo) {
-    if (validarPatenteUnica(vehiculo.getPatente())) {
-        vehiculos.add(vehiculo);
-        return true; // El vehículo se agregó correctamente
-    } else {
-        return false; // La patente ya existe en la lista
-    }
-}
-
-private boolean validarPatenteUnica(String patente) {
-    for (VehiculoDTO vehiculo : vehiculos) {
-        if (vehiculo.getPatente().equals(patente)) {
-            return false; // La patente ya existe en la lista
+    public boolean agregarVehiculo(VehiculoDTO vDTO) {
+        if (validarPatente(vDTO.getPatente())) {
+            vehiculos.add(vDTO);
+            return true;
+        } else {
+            return false;
         }
     }
-    return true; // La patente es única y se puede agregar
-}
-
-public List<VehiculoDTO> obtenerVehiculos() {
-    return vehiculos;
-}
-public int contarVehiculosArriendoLargo() {
-    int count = 0;
-    for (VehiculoDTO vehiculo : vehiculos) {
-        if (vehiculo.getCantidadDias() >= 7) {
-            count++;
+    private boolean validarPatente(String patente) {
+        for (VehiculoDTO vDTO : vehiculos) {
+            if (vDTO.getPatente().equals(patente)) {
+                return false;
+            }
         }
+        return true;
     }
-    return count;
+    public List<VehiculoDTO> obtenerVehiculos() {
+        return vehiculos;
+    }
+
+    public int contarVehiculosArriendoLargo() {
+        int count = 0;
+        for (VehiculoDTO vDTO : vehiculos) {
+            if (vDTO.getCantidadDias() >= 7) {
+                count++;
+            }
+        }
+        return count;
     }
 }

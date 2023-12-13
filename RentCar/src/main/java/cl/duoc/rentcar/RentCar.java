@@ -9,21 +9,42 @@ import java.util.List;
 
 public class RentCar {
     public static void main(String[] args) {
-        AdministracionVehiculos gestionVehiculos = new AdministracionVehiculos();
+        AdministracionVehiculos av = new AdministracionVehiculos();
 
-        VehiculoCargaDTO vehiculoCarga = new VehiculoCargaDTO(100, "ABC123", 5, 2000);
-        VehiculoPasajerosDTO vehiculoPasajeros = new VehiculoPasajerosDTO(80, "XYZ456", 7, 4);
+        //Vehículo de carga
+        VehiculoCargaDTO vc = new VehiculoCargaDTO();
+        vc.setCapacidadCarga(100);
+        vc.setPatente("ALO123");
+        vc.setPrecioDiario(5000);
+        vc.setCantidadDias(15);
 
-        gestionVehiculos.agregarVehiculo(vehiculoCarga);
-        gestionVehiculos.agregarVehiculo(vehiculoPasajeros);
 
-        List<VehiculoDTO> vehiculos = gestionVehiculos.obtenerVehiculos();
+        //Vehículo de pasajeros
+        VehiculoPasajerosDTO vp = new VehiculoPasajerosDTO();
+        vp.setCantidadPasajeros(60);
+        vp.setPatente("KKS456");
+        vp.setPrecioDiario(7500);
+        vp.setCantidadDias(14);
+
+
+        //Agregar vehículos a la administración
+        av.agregarVehiculo(vc);
+        av.agregarVehiculo(vp);
+
+        //Mostrar información y boleta
+        List<VehiculoDTO> vehiculos = av.obtenerVehiculos();
         for (VehiculoDTO vehiculo : vehiculos) {
+            System.out.println("Datos del vahiculo");
+            System.out.println("==============");
             vehiculo.mostrarDatos();
+            System.out.println("--------------");
+            System.out.println("Boleta:");
             vehiculo.mostrarDetalleBoleta();
         }
 
-        int vehiculosArriendoLargo = gestionVehiculos.contarVehiculosArriendoLargo();
-        System.out.println("Cantidad de vehículos en arriendo largo: " + vehiculosArriendoLargo);
-        }
+        //Contar vehículos en arriendo largo
+        int vehiculosArriendoLargo = av.contarVehiculosArriendoLargo();
+        System.out.println("==============");
+        System.out.println("Vehiculos con arriendos largos: " + vehiculosArriendoLargo);
+    }
 }
