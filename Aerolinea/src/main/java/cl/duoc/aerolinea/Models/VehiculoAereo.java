@@ -1,5 +1,6 @@
 package cl.duoc.aerolinea.Models;
 
+import cl.duoc.aerolinea.utils.TipoVehiculo;
 import java.time.LocalDate;
 
 public class VehiculoAereo {
@@ -12,6 +13,7 @@ public class VehiculoAereo {
     private int horasVoladas;
     private boolean listoParaVolar;
     private int tonelaje;
+    private boolean ultrasonico;
     private String datosExtras;
     private LocalDate fechaUltimoVuelo;
 
@@ -23,6 +25,7 @@ public class VehiculoAereo {
         this.horasVoladas = horasVoladas;
         this.listoParaVolar = listoParaVolar;
         this.tonelaje = tonelaje;
+        this.ultrasonico = ultrasonico;
         this.datosExtras = datosExtras;
         this.fechaUltimoVuelo = fechaUltimoVuelo;
     }
@@ -30,10 +33,11 @@ public class VehiculoAereo {
     public VehiculoAereo() {
         this.id = -1;
         this.nombre = "";
-        this.tipo = tipo.Avion;
+        this.tipo = tipo.SinTipo;
         this.horasVoladas = -1;
         this.listoParaVolar = false;
         this.tonelaje = -1;
+        this.ultrasonico = false;
         this.datosExtras = "";
         this.fechaUltimoVuelo = LocalDate.now();
 
@@ -102,17 +106,40 @@ public class VehiculoAereo {
     public void setFechaUltimoVuelo(LocalDate fechaUltimoVuelo) {
         this.fechaUltimoVuelo = LocalDate.now();
     }
+    public void setFechaUltimoVuelo(int anio, int mes, int dia) {
+        this.fechaUltimoVuelo = LocalDate.of(anio, mes, dia);
+    }
+
+    public static int getIdGlobal() {
+        return idGlobal;
+    }
+
+    public static void setIdGlobal(int idGlobal) {
+        VehiculoAereo.idGlobal = idGlobal;
+    }
+
+    public boolean isUltrasonico() {
+        return ultrasonico;
+    }
+
+    public void setUltrasonico(boolean ultrasonico) {
+        this.ultrasonico = ultrasonico;
+    }
 
     @Override
     public String toString() {
-        String mensaje = "-ID: #"+idGlobal+"\n-Nombre: "+nombre+"\n-Tipo aeronave: "+tipo+"\n-Horas voladas: "+horasVoladas+"\n-Listo Para Volar: "+listoParaVolar+"\n-Tonelaje: "+tonelaje+"-"+datosExtras+"\n-Fecha ultimo vuelo: "+fechaUltimoVuelo;
-        String mensaje2 = "-ID: #"+idGlobal+"\n-Nombre: "+nombre+"\n-Tipo aeronave: "+tipo+"\n-Horas voladas: "+horasVoladas+"\n-Listo Para Volar: "+listoParaVolar+"\n-datos extras: "+datosExtras+"\n-Fecha ultimo vuelo: "+fechaUltimoVuelo;
-            
+        String mensaje = "-ID: #"+idGlobal+"\n-Nombre: "+nombre+"\n-Tipo aeronave: "+tipo+"\n-Horas voladas: "+horasVoladas+"\n-Listo Para Volar: "+listoParaVolar+"\n-Fecha ultimo vuelo: "+fechaUltimoVuelo;
+      
         if (tipo.equals(tipo.Carguero)){
-            return mensaje;
+            
+            return mensaje+="\n-Tonelaje: "+tonelaje;
         }
-        else{
-            return mensaje2;
+        else if(tipo.equals(tipo.Avioneta)){
+            return mensaje+="\n-Ulta Sonico: "+ultrasonico;
         }
+        else if(tipo.equals(tipo.Avion)){
+            return mensaje+="\n-Datos extras: "+datosExtras;
+        }
+        return mensaje;
     }
 }

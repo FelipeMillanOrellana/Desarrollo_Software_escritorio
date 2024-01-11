@@ -19,10 +19,10 @@ public class Vuelo {
 
     public Vuelo() {
         this.id = -1;
-        this.origen = "";
-        this.destino = "";
+        this.origen = "Sin origen definido";
+        this.destino = "Sin origen definido";
         this.fecha = LocalDate.now();
-        this.piloto = "";
+        this.piloto = "Sin piloto designado";
     }
 
     public int getId() {
@@ -56,6 +56,9 @@ public class Vuelo {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
+    public void setFecha(int anio, int mes, int dia) {
+        this.fecha = LocalDate.of(anio, mes, dia);
+    }
 
     public String getPiloto() {
         return piloto;
@@ -63,6 +66,12 @@ public class Vuelo {
 
     public void setPiloto(String piloto) {
         this.piloto = piloto;
+    }
+
+    @Override
+    public String toString() {
+            String mensaje = "Informacion de Vuelo"+"\nId : #"+id+"\nOrigen: "+origen+"\nDestino: "+destino+"\nFecha: "+fecha+"\nPiloto: "+piloto;
+        return mensaje;
     }
     
     

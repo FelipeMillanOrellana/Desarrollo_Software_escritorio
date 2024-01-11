@@ -1,6 +1,7 @@
 package cl.duoc.aerolinea.Models;
 
 import java.time.LocalDate;
+import cl.duoc.aerolinea.utils.Validacion;
 
 public class Pasajero {
     private int id;
@@ -25,7 +26,7 @@ public class Pasajero {
 
     public Pasajero() {
         this.id = -1;
-        this.nombre = "";
+        this.nombre = "Sin nombre";
         this.fechaNacimiento = LocalDate.now();
         this.run = 0;
         this.dv = '0';
@@ -79,7 +80,12 @@ public class Pasajero {
     }
 
     public void setTelefono(long telefono) {
-        this.telefono = telefono;
+        if(Validacion.ValidaTelefono(telefono)){
+            this.telefono = telefono;        
+        }
+        else{
+             System.out.println("Error al ingresar el Telefono");
+        }
     }
 
     public String getEmail() {
@@ -97,6 +103,10 @@ public class Pasajero {
     public void setVetado(boolean vetado) {
         this.vetado = vetado;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Pasajero{" + "id=" + id + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", run=" + run + ", dv=" + dv + ", telefono=" + telefono + ", email=" + email + ", vetado=" + vetado + '}';
+    }
+
 }

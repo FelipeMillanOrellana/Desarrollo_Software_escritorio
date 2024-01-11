@@ -1,16 +1,17 @@
 package cl.duoc.aerolinea.Models;
 
+import cl.duoc.aerolinea.utils.TipoVehiculo;
 import java.time.LocalDate;
 
 public class Pasaje {
     private int id;
     private Pasajero pasajero;
     private LocalDate fecha;
-    private int codigoVuelo;
-    private int valor;
+    private String codigoVuelo;
+    private float valor;
     private TipoVehiculo aeronave;
 
-    public Pasaje(int id, Pasajero pasajero, LocalDate fecha, int codigoVuelo, int valor, TipoVehiculo aeronave) {
+    public Pasaje(int id, Pasajero pasajero, LocalDate fecha, String codigoVuelo, float valor, TipoVehiculo aeronave) {
         this.id = id;
         this.pasajero = pasajero;
         this.fecha = fecha;
@@ -23,7 +24,7 @@ public class Pasaje {
         this.id = -1;
         this.pasajero = new Pasajero();
         this.fecha = LocalDate.now();
-        this.codigoVuelo = 0;
+        this.codigoVuelo = "Le-01";
         this.valor = 0;
         this.aeronave = TipoVehiculo.Avion;
     }
@@ -52,15 +53,15 @@ public class Pasaje {
         this.fecha = fecha;
     }
 
-    public int getCodigoVuelo() {
+    public String getCodigoVuelo() {
         return codigoVuelo;
     }
 
-    public void setCodigoVuelo(int codigoVuelo) {
+    public void setCodigoVuelo(String codigoVuelo) {
         this.codigoVuelo = codigoVuelo;
     }
 
-    public int getValor() {
+    public float getValor() {
         return valor;
     }
 
@@ -74,6 +75,11 @@ public class Pasaje {
 
     public void setAeronave(TipoVehiculo aeronave) {
         this.aeronave = aeronave;
+    }
+
+    @Override
+    public String toString() {
+        return  "Pasaje{" + "id=" + id + ", pasajero=" + pasajero + ", fecha=" + fecha + ", codigoVuelo=" + codigoVuelo + ", valor=" + valor + ", aeronave=" + aeronave + '}';
     }
     
     
