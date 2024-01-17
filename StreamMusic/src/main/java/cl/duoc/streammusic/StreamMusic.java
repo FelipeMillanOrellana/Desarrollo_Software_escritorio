@@ -1,6 +1,8 @@
 package cl.duoc.streammusic;
 
 import cl.duoc.streammusic.Models.Cancion;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StreamMusic {
 
@@ -12,6 +14,19 @@ public class StreamMusic {
         c.setDuracion(3,30);
         c.setDescargada(true);
         c.setFavorita(true);
-        System.out.println(c);
+        
+        Cancion bn = new Cancion();
+        bn.setId(206473);
+        bn.setTitulo("Error");
+        bn.setArtista("El Bestia Negra");
+        bn.setDuracion(3,48);
+        bn.setDescargada(true);
+        bn.setFavorita(true);
+        
+        
+        List<Cancion> misCanciones = new ArrayList<>();
+        misCanciones.add(c);
+        misCanciones.add(bn);
+        System.out.println(misCanciones);
     }
 }

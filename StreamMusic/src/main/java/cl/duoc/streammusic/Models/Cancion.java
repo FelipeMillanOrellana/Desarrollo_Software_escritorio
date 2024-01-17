@@ -60,11 +60,12 @@ public class Cancion {
         return this.duracion;
     }
 
-    public void setDuracion(LocalTime duracion) {
+    public void setDuracion(LocalTime duracion){
+
         this.duracion = duracion;
     }
     public void setDuracion(int minutos, int segundos){
-        this.duracion = duracion;
+        this.duracion = LocalTime.of(0, minutos, segundos);
     }
 
     public boolean isFavorita() {
@@ -90,14 +91,30 @@ public class Cancion {
         
     }
     
-    public void Adelantar (int SegundosAdelantar){
-       this.duracion = this.duracion.plusSeconds(SegundosAdelantar);
+    public void Adelantar(int segundosAdelantar){
+        //this.duracion = this.duracion + segundosAdelantar;
+        //this.duracion += segundosAdelantar;
+        this.duracion = this.duracion.plusSeconds(segundosAdelantar);
     }
-    public void Retroceder (int segundoRetroceder){
-       this.duracion = this.duracion.minusSeconds(segundoRetroceder);
+    public void Retroceder(int segundosRetroceder){
+        //this.duracion = this.duracion - segundosRetroceder;
+        //this.duracion -= segundosRetroceder;
+        this.duracion = this.duracion.minusSeconds(segundosRetroceder);
     }
     
     private String getDuracionEnMinutos(){
         return this.duracion.toString();
+    }
+    
+    public String isLarga(){
+        /*
+        if(this.duracion.getMinute() > 5){
+            return "es Larga";
+        }
+        else{
+            return "No es larga";
+        }
+        */
+        return (this.duracion.getMinute() >= 5 ? "Es Larga" : "No es Larga" );
     }
 }
