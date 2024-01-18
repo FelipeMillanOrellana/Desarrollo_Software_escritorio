@@ -9,7 +9,7 @@ public class VehiculoCargaDTO extends VehiculoDTO{
         this.capacidadCarga = (int) capacidadCarga;
     }
     public VehiculoCargaDTO(double capacidadCarga) {
-        this.capacidadCarga = (int) capacidadCarga;
+        this.capacidadCarga = capacidadCarga;
     }
     public VehiculoCargaDTO() {
         super();
@@ -19,7 +19,7 @@ public class VehiculoCargaDTO extends VehiculoDTO{
         return capacidadCarga;
     }
     public void setCapacidadCarga(double capacidadCarga) {
-        this.capacidadCarga = (int) capacidadCarga;
+        this.capacidadCarga = capacidadCarga;
     }
 
     @Override

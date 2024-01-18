@@ -1,6 +1,6 @@
 package cl.duoc.rentcar;
 
-import cl.duoc.rentcar.DTO.AdministracionVehiculos;
+import cl.duoc.rentcar.Services.VehiculoService;
 import cl.duoc.rentcar.dto.VehiculoCargaDTO;
 import cl.duoc.rentcar.dto.VehiculoDTO;
 import cl.duoc.rentcar.dto.VehiculoPasajerosDTO;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RentCar {
     public static void main(String[] args) {
-        AdministracionVehiculos av = new AdministracionVehiculos();
+        VehiculoService vs= new VehiculoService();
 
         //Vehículo de carga
         VehiculoCargaDTO vc = new VehiculoCargaDTO();
@@ -27,11 +27,11 @@ public class RentCar {
 
 
         //Agregar vehículos a la administración
-        av.agregarVehiculo(vc);
-        av.agregarVehiculo(vp);
+        vs.agregarVehiculo(vc);
+        vs.agregarVehiculo(vp);
 
         //Mostrar información y boleta
-        List<VehiculoDTO> vehiculos = av.obtenerVehiculos();
+        List<VehiculoDTO> vehiculos = vs.obtenerVehiculos();
         for (VehiculoDTO vehiculo : vehiculos) {
             System.out.println("Datos del vahiculo");
             System.out.println("==============");
@@ -42,7 +42,7 @@ public class RentCar {
         }
 
         //Contar vehículos en arriendo largo
-        int vehiculosArriendoLargo = av.contarVehiculosArriendoLargo();
+        int vehiculosArriendoLargo = vs.contarVehiculosArriendoLargo();
         System.out.println("==============");
         System.out.println("Vehiculos con arriendos largos: " + vehiculosArriendoLargo);
     }
