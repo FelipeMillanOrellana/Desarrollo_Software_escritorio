@@ -1,0 +1,4 @@
+cl\duoc\miservicio\MiServicio.class
+cl\duoc\miservicio\service\IPersonaService.class
+cl\duoc\miservicio\models\Persona.class
+cl\duoc\miservicio\service\PersonaService.class
