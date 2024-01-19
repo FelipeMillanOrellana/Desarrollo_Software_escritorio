@@ -1,0 +1,8 @@
+cl\duoc\pcarming\models\Computador.class
+cl\duoc\pcarming\PCArming.class
+cl\duoc\pcarming\models\pcMultiusos.class
+cl\duoc\pcarming\models\pcOficina.class
+cl\duoc\pcarming\models\pcGamer.class
+cl\duoc\pcarming\models\notebookEscolar.class
+cl\duoc\pcarming\services\ComputadoraService.class
+cl\duoc\pcarming\services\IComputadoraService.class
