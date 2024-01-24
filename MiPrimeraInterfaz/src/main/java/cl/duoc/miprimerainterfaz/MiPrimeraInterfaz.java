@@ -4,7 +4,10 @@
  */
 package cl.duoc.miprimerainterfaz;
 
+import cl.duoc.miprimerainterfaz.gui.Proble4;
 import cl.duoc.miprimerainterfaz.gui.ViewContarClick;
+import cl.duoc.miprimerainterfaz.gui.vwProble1;
+import cl.duoc.miprimerainterfaz.gui.vwProble3;
 
 /**
  *
@@ -35,6 +38,7 @@ public class MiPrimeraInterfaz extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jClicks = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -45,7 +49,7 @@ public class MiPrimeraInterfaz extends javax.swing.JFrame {
         JTitulo.setText("Pulenta Empresa");
         JTitulo.setToolTipText("");
 
-        btnGuardar.setText("Guarda");
+        btnGuardar.setText("Salir");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -88,14 +92,32 @@ public class MiPrimeraInterfaz extends javax.swing.JFrame {
         });
         jMenu1.add(jClicks);
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("problema 2");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem1.setText("problema 3");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Editar");
 
         jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("jMenuItem4");
@@ -133,6 +155,40 @@ public class MiPrimeraInterfaz extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        vwProble1 ventana2 = new vwProble1();
+        
+        // agregar este objeto a el escritorio
+        escritorio.add(ventana2);
+        
+        // al objeto ventana le doy la orden que se muestre
+        ventana2.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        vwProble3 ventana3 = new vwProble3();
+        
+        // agregar este objeto a el escritorio
+        escritorio.add(ventana3);
+        
+        // al objeto ventana le doy la orden que se muestre
+        ventana3.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        Proble4 ventana4 = new Proble4();
+        
+        // agregar este objeto a el escritorio
+        escritorio.add(ventana4);
+        
+        // al objeto ventana le doy la orden que se muestre
+        ventana4.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +233,7 @@ public class MiPrimeraInterfaz extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
