@@ -111,5 +111,4 @@ public class Visitante {
         return "Visitante{" + "rut=" + rut + ", dv=" + dv + ", nombreCompleto=" + nombreCompleto + ", correoElectronico=" + correoElectronico + ", telefono=" + telefono + ", direccion=" + direccion + ", edad=" + edad + ", estadoCivil=" + estadoCivil + '}';
     }
     
-
 }

@@ -1,13 +1,15 @@
 package cl.duoc.zoologico.models;
 
+import cl.duoc.zoologico.utils.TipoClima;
+
 public class Animal {
     private int numeroRegistro;
     private String nombre;
     private int edad;
-    private String tipoClima;
+    private TipoClima tipoClima;
     private String descripcion;
 
-    public Animal(int numeroRegistro, String nombre, int edad, String tipoClima, String descripcion) {
+    public Animal(int numeroRegistro, String nombre, int edad, TipoClima tipoClima, String descripcion) {
         this.numeroRegistro = numeroRegistro;
         this.nombre = nombre;
         this.edad = edad;
@@ -19,7 +21,7 @@ public class Animal {
         this.numeroRegistro = -1;
         this.nombre = "";
         this.edad = -1;
-        this.tipoClima = "";
+        this.tipoClima = tipoClima;
         this.descripcion = "";
     }
 
@@ -47,11 +49,11 @@ public class Animal {
         this.edad = edad;
     }
 
-    public String getTipoClima() {
+    public TipoClima getTipoClima() {
         return tipoClima;
     }
 
-    public void setTipoClima(String tipoClima) {
+    public void setTipoClima(TipoClima tipoClima) {
         this.tipoClima = tipoClima;
     }
 

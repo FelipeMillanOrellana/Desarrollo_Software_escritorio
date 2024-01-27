@@ -3,14 +3,14 @@ package cl.duoc.zoologico.models;
 import java.time.LocalDate;
 
 public class Entrada {
-    private int codigoEntrada;
+    private String codigoEntrada;
     private Visitante visitante;
     private String tipoDeEntrada;
     private LocalDate fecha;
     private double valor;
     private boolean incluyeColacion; 
 
-    public Entrada(int codigoEntrada, Visitante visitante, String tipoDeEntrada, LocalDate fecha, double valor, boolean incluyeColacion) {
+    public Entrada(String codigoEntrada, Visitante visitante, String tipoDeEntrada, LocalDate fecha, double valor, boolean incluyeColacion) {
         this.codigoEntrada = codigoEntrada;
         this.visitante = visitante;
         this.tipoDeEntrada = tipoDeEntrada;
@@ -20,7 +20,7 @@ public class Entrada {
     }
 
     public Entrada() {
-        this.codigoEntrada = -1;
+        this.codigoEntrada = "";
         this.visitante = new Visitante();
         this.tipoDeEntrada = "";
         this.fecha = LocalDate.now();
@@ -28,11 +28,11 @@ public class Entrada {
         this.incluyeColacion = false;
     }
 
-    public int getCodigoEntrada() {
+    public String getCodigoEntrada() {
         return codigoEntrada;
     }
 
-    public void setCodigoEntrada(int codigoEntrada) {
+    public void setCodigoEntrada(String codigoEntrada) {
         this.codigoEntrada = codigoEntrada;
     }
 
